@@ -1,0 +1,136 @@
+{
+  "televisions": [
+    {
+      "id": "t01",
+      "title": "WandaVision",
+      "description": "Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems.",
+      "airingDate": "Jan 15, 2021",
+      "score": "84%",
+      "genre": "Sci-Fi & Fantasy, Mystery, Drama",
+      "duration": "36 minutes",
+      "director": "Jac Schaeffer",
+      "casting": "Elizabeth Olsen (as Wanda Maximoff/Scarlet Witch), Paul Bettany (as Vision)",
+      "imagePath": "t01_wanda_vision"
+    },
+    {
+      "id": "t02",
+      "title": "Riverdale",
+      "description": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+      "airingDate": "Jan 20, 2021",
+      "score": "86%",
+      "genre": "Mystery, Drama, Crime",
+      "duration": "45 minutes",
+      "director": "Roberto Aguirrre-Sacasa",
+      "casting": "K.J.Apa (as Archie Andrews), Lili Reinhart (as Elizabeth Cooper)",
+      "imagePath": "t02_riverdale"
+    },
+    {
+      "id": "t03",
+      "title": "Legacies",
+      "description": "In a place where young witches, vampires, and werewolves are nurtured to be their best selves in spite of their worst impulses, Klaus Mikaelson’s daughter, 17-year-old Hope Mikaelson, Alaric Saltzman’s twins, Lizzie and Josie Saltzman, among others, come of age into heroes and villains at The Salvatore School for the Young and Gifted.",
+      "airingDate": "Oct 25, 2018",
+      "score": "86%",
+      "genre": "Sci-Fi & Fantasy, Drama",
+      "duration": "43 minutes",
+      "director": "Julie Plec",
+      "casting": "Danielle Rose Russell (as Hope Mikaelson), Aria Shahghasemi (as Landon Kirby)",
+      "imagePath": "t03_legacies"
+    },
+    {
+      "id": "t04",
+      "title": "Marvel Studios: Legends",
+      "description": "As the universe expands, explore the stories of those destined to become legends. Revisit the epic heroes, villains and moments from across the MCU in preparation for the stories still to come. Each dynamic segment feeds directly into the upcoming series — setting the stage for future events. This series weaves together the many threads that constitute the unparalleled Marvel Cinematic Universe.",
+      "airingDate": "Jan 8, 2021",
+      "score": "76%",
+      "genre": "Documentary",
+      "duration": "8 minutes",
+      "director": "-",
+      "casting": "Paul Bettany (as Vision), Elizabeth Olsen (as Wanda Maximoff)",
+      "imagePath": "t04_legends"
+    },
+    {
+      "id": "t05",
+      "title": "The Good Doctor",
+      "description": "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives.",
+      "airingDate": "2020",
+      "score": "86%",
+      "genre": "Drama",
+      "duration": "43 minutes",
+      "director": "David Shore",
+      "casting": "Freddie Highmore (as Shaun Murphy), Antonia Thomas (as Claire Browne)",
+      "imagePath": "t05_the_good_doctor"
+    },
+    {
+      "id": "t06",
+      "title": "Daughter From Another Mother",
+      "description": "After realizing their babies were exchanged at birth, two women develop a plan to adjust to their new lives: creating a single —and peculiar— family.",
+      "airingDate": "2021",
+      "score": "76%",
+      "genre": "Comedy, Drama",
+      "duration": "40 minutes",
+      "director": "Carolina Rivera",
+      "casting": "Ludwika Paleta (as Ana), Paulina Goto (as Mariana)",
+      "imagePath": "t06_daughter_from_another_mother"
+    },
+    {
+      "id": "t07",
+      "title": "Grey's Anatomy",
+      "description": "The life you save may be your own. Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+      "airingDate": "2005",
+      "score": "82%",
+      "genre": "Comedy, Drama",
+      "duration": "43 minutes",
+      "director": "Shonda Rhimes",
+      "casting": "Ellen Pompeo (as Meredith Grey), Justin Chambers (as Alex Karev)",
+      "imagePath": "t07_greys_anatomy"
+    },
+    {
+      "id": "t08",
+      "title": "The Mandalorian",
+      "description": "Bounty hunting is a complicated profession. After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+      "airingDate": "2019",
+      "score": "85%",
+      "genre": "Sci-Fi & Fantasy, Action, Adventure",
+      "duration": "35 minutes",
+      "director": "Jon Favreau",
+      "casting": "Pedro Pascal (as The Mandalorian/Din Djarin), Gina Carano (as Cara Dune)    ",
+      "imagePath": "t08_the_mandalorian"
+    },
+    {
+      "id": "t09",
+      "title": "Cobra Kai",
+      "description": "Cobra Kai never dies. This Karate Kid sequel series picks up 30 years after the events of the 1984 All Valley Karate Tournament and finds Johnny Lawrence on the hunt for redemption by reopening the infamous Cobra Kai karate dojo. This reignites his old rivalry with the successful Daniel LaRusso, who has been working to maintain the balance in his life without mentor Mr. Miyagi.",
+      "airingDate": "May 22, 2018",
+      "score": "81%",
+      "genre": "Action, Adventure, Drama",
+      "duration": "40 minutes",
+      "director": "Hayden Schlossberg",
+      "casting": "Ralph Macchio (as Daniel LaRusso), William Zabka (as Johnny Lawrence)",
+      "imagePath": "t09_cobra_kai"
+    },
+    {
+      "id": "t10",
+      "title": "Vikings",
+      "description": "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
+      "airingDate": "Mar 03, 2013",
+      "score": "80%",
+      "genre": "Action, Adventure, Drama",
+      "duration": "44 minutes",
+      "director": "Michael Hirst",
+      "casting": "Katheryn Winnick (as Lagertha Lothbrok), Peter Franzen (as King Harald Finehair)",
+      "imagePath": "t10_vikings"
+    },
+    {
+      "id": "t11",
+      "title": "Game Of Thrones",
+      "description": "Winter Is Coming. Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+      "airingDate": "Apr 17, 2011",
+      "score": "84%",
+      "genre": "Sci-Fi & Fantasy, Action, Drama",
+      "duration": "1 hour",
+      "director": "David Benioff",
+      "casting": "Emilia Clarke (as Daenerys Targaryen), Kit Harington (as Jon Snow)",
+      "imagePath": "t11_game_of_throne"
+    }
+  ]
+}

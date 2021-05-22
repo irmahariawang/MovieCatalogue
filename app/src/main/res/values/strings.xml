@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="title_activity_detail">Detail</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="user_score">Reviewer Score : %s</string>
+    <string name="userScore">%s reviewers</string>
+    <string name="movies">Movies</string>
+    <string name="televisions">TV Shows</string>
+    <string name="airingDate">Airing Date</string>
+    <string name="airing_date">Airing Date : %s</string>
+    <string name="detail_genre">Genre</string>
+    <string name="detail_duration">Duration</string>
+    <string name="detail_desc">Overview</string>
+    <string name="detail_director">Director</string>
+    <string name="director">Director</string>
+    <string name="detail_casting">Casting</string>
+    <string name="casting">Casting</string>
+    <string name="duration">Duration</string>
+    <string name="share_text">Saya merekomendasikan film %s untuk kamu tonton.</string>
+    <string name="share_title">Bagikan film ini sekarang</string>
+    <string name="title_activity_favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
