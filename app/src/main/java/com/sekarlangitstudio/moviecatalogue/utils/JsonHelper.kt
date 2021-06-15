@@ -99,4 +99,46 @@ class JsonHelper(private val context: Context) {
         }
         return list
     }
+
+    fun detailMovie(movieId: String): MovieResponse {
+        val fileName = String.format("MovieResponses.json")
+        var detailMovieResponse: MovieResponse? = null
+        try {
+            val responseObject = JSONObject(parsingFileToString(fileName))
+            val listArray = responseObject.getJSONArray("movies")
+            for (i in 0 until listArray.length()) {
+                val movie = listArray.getJSONObject(i)
+                if (movie.getString("id") == movieId) {
+                    val id = movie.getString("id")
+                    val title = movie.getString("title")
+                    val description = movie.getString("description")
+                    val airingDate = movie.getString("airingDate")
+                    val score = movie.getString("score")
+                    val genre = movie.getString("genre")
+                    val duration = movie.getString("duration")
+                    val director = movie.getString("director")
+                    val casting = movie.getString("casting")
+                    val imagePath = movie.getString("imagePath")
+
+                    detailMovieResponse = MovieResponse(
+                        id,
+                        title,
+                        description,
+                        airingDate,
+                        score,
+                        genre,
+                        duration,
+                        director,
+                        casting,
+                        imagePath
+                    )
+                    break
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return detailMovieResponse as MovieResponse
+    }
+
 }

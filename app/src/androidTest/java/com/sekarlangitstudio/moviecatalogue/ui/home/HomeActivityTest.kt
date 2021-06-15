@@ -10,7 +10,6 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.sekarlangitstudio.moviecatalogue.R
-import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
 import com.sekarlangitstudio.moviecatalogue.utils.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before

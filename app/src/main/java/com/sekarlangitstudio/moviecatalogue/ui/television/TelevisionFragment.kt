@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sekarlangitstudio.moviecatalogue.databinding.FragmentTelevisionBinding
 import com.sekarlangitstudio.moviecatalogue.viewmodel.ViewModelFactory
+import com.sekarlangitstudio.moviecatalogue.vo.Status
 
 class TelevisionFragment : Fragment() {
 
@@ -32,6 +34,30 @@ class TelevisionFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[TelevisionViewModel::class.java]
             val televisionAdapter = TelevisionAdapter()
 
+            viewModel.getTelevisions().observe(viewLifecycleOwner, { tvs ->
+                if (tvs != null) {
+                    when (tvs.status) {
+                        Status.LOADING -> fragmentTelevisionBinding.progressBar.visibility =
+                            View.VISIBLE
+                        Status.SUCCESS -> {
+                            fragmentTelevisionBinding.progressBar.visibility = View.GONE
+                            televisionAdapter.setTv(tvs.data)
+                            televisionAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            fragmentTelevisionBinding.progressBar.visibility = View.GONE
+                            Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            })
+
+            with(fragmentTelevisionBinding.rvTv) {
+                this.layoutManager = LinearLayoutManager(context)
+                this.setHasFixedSize(true)
+                this.adapter = televisionAdapter
+            }
+/*
             fragmentTelevisionBinding.progressBar.visibility = View.VISIBLE
             viewModel.getTelevisions().observe(viewLifecycleOwner, { televisions ->
                 fragmentTelevisionBinding.progressBar.visibility = View.GONE
@@ -43,6 +69,7 @@ class TelevisionFragment : Fragment() {
                 setHasFixedSize(true)
                 adapter = televisionAdapter
             }
+            */
         }
     }
 }

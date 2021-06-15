@@ -38,6 +38,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+
         val extras = intent.extras
         if (extras != null) {
             val extraId = extras.getString(EXTRA_ID)
@@ -46,12 +47,9 @@ class DetailActivity : AppCompatActivity() {
             if (extraSession != null) {
                 if (extraId != null) {
 
-                    activityDetailBinding.progressBar.visibility = View.VISIBLE
-                    activityDetailBinding.content.visibility = View.INVISIBLE
-
                     viewModel.setSelectedId(extraId)
-                    when (extraSession) {
 
+                    when (extraSession) {
                         resources.getString(R.string.movies) -> viewModel.getDetailMovie()
                             .observe(this, { movie ->
                                 activityDetailBinding.progressBar.visibility = View.GONE
@@ -65,6 +63,7 @@ class DetailActivity : AppCompatActivity() {
                                 activityDetailBinding.content.visibility = View.VISIBLE
                                 setDetailTv(television)
                             })
+
                     }
                 }
             }

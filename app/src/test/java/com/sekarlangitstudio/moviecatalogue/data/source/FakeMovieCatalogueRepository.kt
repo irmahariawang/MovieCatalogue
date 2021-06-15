@@ -37,7 +37,7 @@ class FakeMovieCatalogueRepository(private val remoteDataSource: RemoteDataSourc
         return movieResults
     }
 
-    override fun getDetailMovie(extraID: String): LiveData<MovieEntity> {
+    override fun getDetailMovie(extraID: MutableLiveData<String>): LiveData<MovieEntity> {
         val movieResult = MutableLiveData<MovieEntity>()
         remoteDataSource.getAllMovies(object : RemoteDataSource.LoadMoviesCallback {
             override fun onAllMoviesReceived(movieResponse: List<MovieResponse>) {

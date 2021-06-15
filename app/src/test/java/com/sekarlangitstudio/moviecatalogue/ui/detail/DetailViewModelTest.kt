@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import com.sekarlangitstudio.moviecatalogue.data.source.MovieCatalogueRepository
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
-import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
