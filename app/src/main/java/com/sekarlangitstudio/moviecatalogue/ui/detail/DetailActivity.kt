@@ -26,6 +26,11 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var detailContentDetailBinding: ContentDetailBinding
     lateinit var title: String
+    private var isFavorite = false
+    lateinit var movieEntity: MovieEntity
+    lateinit var televisionEntity: TelevisionEntity
+    lateinit var session: String
+    lateinit var extraSession: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,38 +41,83 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailBinding.toolbar)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        activityDetailBinding.progressBar.visibility = View.VISIBLE
+        detailContentDetailBinding.btnAddFavorite.visibility = View.VISIBLE
+
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
             val extraId = extras.getString(EXTRA_ID)
-            val extraSession = extras.getString(EXTRA_SESSION)
+            extraSession = extras.getString(EXTRA_SESSION)!!
 
             if (extraSession != null) {
                 if (extraId != null) {
 
                     viewModel.setSelectedId(extraId)
 
+
                     when (extraSession) {
-                        resources.getString(R.string.movies) -> viewModel.getDetailMovie()
-                            .observe(this, { movie ->
-                                activityDetailBinding.progressBar.visibility = View.GONE
-                                activityDetailBinding.content.visibility = View.VISIBLE
+                        resources.getString(R.string.movies) -> viewModel.detailMovie.observe(
+                            this,
+                            { movie ->
                                 setDetailMovie(movie)
+                                checkFavMovie(movie)
+                                movieEntity = movie
+
                             })
 
-                        resources.getString(R.string.televisions) -> viewModel.getDetailTv()
-                            .observe(this, { television ->
-                                activityDetailBinding.progressBar.visibility = View.GONE
-                                activityDetailBinding.content.visibility = View.VISIBLE
+                        resources.getString(R.string.televisions) -> viewModel.detailTv.observe(
+                            this,
+                            { television ->
                                 setDetailTv(television)
+                                checkFavTv(television)
+                                televisionEntity = television
+
                             })
 
                     }
+
+                    activityDetailBinding.progressBar.visibility = View.GONE
+                    activityDetailBinding.content.visibility = View.VISIBLE
+
+
+                }
+            }
+
+        }
+
+        detailContentDetailBinding.btnAddFavorite.setOnClickListener {
+            when (extraSession) {
+                resources.getString(R.string.movies) -> {
+                    viewModel.setFavoriteMovie(movieEntity)
+                    setFavoriteState(true)
+                }
+                resources.getString(R.string.televisions) -> {
+                    viewModel.setFavoriteTv(televisionEntity)
+                    setFavoriteState(true)
                 }
             }
         }
+
+
+        detailContentDetailBinding.btnRemoveFavorite.setOnClickListener {
+            when (extraSession) {
+                resources.getString(R.string.movies) -> {
+                    viewModel.setFavoriteMovie(movieEntity)
+                    setFavoriteState(false)
+                }
+                resources.getString(R.string.televisions) -> {
+                    viewModel.setFavoriteTv(televisionEntity)
+                    setFavoriteState(false)
+                }
+            }
+        }
+
+
+
         activityDetailBinding.fab.setOnClickListener {
             val mimeType = "text/plain"
             ShareCompat.IntentBuilder
@@ -76,6 +126,23 @@ class DetailActivity : AppCompatActivity() {
                 .setChooserTitle(resources.getString(R.string.share_title))
                 .setText(resources.getString(R.string.share_text, title))
                 .startChooser()
+        }
+    }
+
+    private fun checkFavMovie(movie: MovieEntity?) {
+        if (movie!!.favorite == true) {
+            setFavoriteState(true)
+        } else {
+            setFavoriteState(false)
+        }
+    }
+
+
+    private fun checkFavTv(television: TelevisionEntity?) {
+        if (television!!.favorite == true) {
+            setFavoriteState(true)
+        } else {
+            setFavoriteState(false)
         }
     }
 
@@ -130,5 +197,25 @@ class DetailActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    private fun setFavoriteState(state: Boolean) {
+        if (state) {
+            detailContentDetailBinding.btnAddFavorite.visibility = View.GONE
+            detailContentDetailBinding.btnRemoveFavorite.visibility = View.VISIBLE
+        } else {
+            detailContentDetailBinding.btnAddFavorite.visibility = View.VISIBLE
+            detailContentDetailBinding.btnRemoveFavorite.visibility = View.GONE
+        }
+    }
+
+    /*
+    private fun checkFavoriteMovie(extraId: String): Boolean {
+        val state: Boolean
+
+
+     return state
+    }
+
+     */
 
 }
