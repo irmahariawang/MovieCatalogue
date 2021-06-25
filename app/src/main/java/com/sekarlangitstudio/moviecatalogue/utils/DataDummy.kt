@@ -416,6 +416,133 @@ object DataDummy {
                 "m03_the_little_things"
             )
         )
+
+        movies.add(
+            MovieResponse(
+                "m04",
+                "Outside The Wire",
+                "In the near future, a drone pilot is sent into a deadly militarized zone and must work with an android officer to locate a doomsday device.",
+                "Jan 15, 2021 (US)",
+                "65%",
+                "Thriller, Action, Science Fiction",
+                "1 hours, 54 minutes",
+                "Mikael Hafstrom",
+                "Anthony Mackie (as Leo), Damson Idris (as Thomas Harp)",
+                "m04_outside_the_wire"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m05",
+                "Black Water: Abbys",
+                "An adventure-loving couple convince their friends to explore a remote, uncharted cave system in the forests of Northern Australia. With a tropical storm approaching, they abseil into the mouth of the cave, but when the caves start to flood, tensions rise as oxygen levels fall and the friends find themselves trapped. Unknown to them, the storm has also brought in a pack of dangerous and hungry crocodiles.",
+                "Jul 8, 2020 (US)",
+                "51%",
+                "Horror, Thriller, Adventure",
+                "1 hours, 38 minutes",
+                "Andrew Traucki",
+                "Jessica McNamee (as Jennifer), Anthony J. Sharpe (as Cash)",
+                "m05_black_water_abbys"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m06",
+                "Breach",
+                "Deep in space they are not alone. A hardened mechanic must stay awake and maintain an interstellar ark fleeing the dying planet Earth with a few thousand lucky souls on board... the last of humanity. Unfortunately, humans are not the only passengers. A shapeshifting alien creature has taken residence, its only goal is to kill as many people as possible. The crew must think quickly to stop this menace before it destroys mankind.",
+                "Dec 12, 2020 (US)",
+                "46%",
+                "Science Fiction, Action",
+                "1 hours, 32 minutes",
+                "John Suits",
+                "Bruce Willis (as Clay Young), Thomas Jane (as Admiral Adams-King)",
+                "m06_breach"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m07",
+                "Skylines",
+                "To save our world she must invade theirs. When a virus threatens to turn the now earth-dwelling friendly alien hybrids against humans, Captain Rose Corley must lead a team of elite mercenaries on a mission to the alien world in order to save what's left of humanity.",
+                "Oct 25, 2020 (US)",
+                "57%",
+                "Science Fiction, Action",
+                "1 hours, 53 minutes",
+                "Liam O'Donnell",
+                "James Cosmo (as Grant), Alexander Siddig (as General Radford)",
+                "m07_skylines"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m08",
+                "Vanguard",
+                "Covert security company Vanguard is the last hope of survival for an accountant after he is targeted by the world's deadliest mercenary organization.",
+                "Feb 11, 2021 (US)",
+                "65%",
+                "Action, Adventure, Crime",
+                "1 hours, 47 minutes",
+                "Stanley Tong",
+                "Jackie Chan (as Tang Huanting), Yang Yang (as Lei Zhenyu)",
+                "m08_vanguard"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m09",
+                "Finding Ohana",
+                "Home is where 'Ohana is. Two Brooklyn siblings' summer in a rural Oahu town takes an exciting turn when a journal pointing to long-lost treasure sets them on an adventure, leading them to reconnect with their Hawaiian heritage.",
+                "Jan 29, 2021 (US)",
+                "69%",
+                "Action, Adventure, Comedy, Family",
+                "2 hours, 3 minutes",
+                "Jude Weng",
+                "Kea Peahu (as Pili), Alex Aiono (as Loane)",
+                "m09_finding_ohana"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m10",
+                "Tenet",
+                "Time runs out. Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
+                "Aug 22, 2020 (US)",
+                "73%",
+                "Action, Thriller, Science Fiction",
+                "2 hours, 30 minutes",
+                "Christoper Nolan",
+                "John David (as The Protagonist), Robert Pattinson (as Neil)",
+                "m10_tenet"
+            )
+        )
+
+
+        movies.add(
+            MovieResponse(
+                "m11",
+                "Soul",
+                "Is all this living really worth dying for?. Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.",
+                "Dec 25, 2020 (US)",
+                "83%",
+                "Family, Animation, Comedy, Drama, Music",
+                "1 hours, 42 minutes",
+                "Pete Docter",
+                "Jamie Foxx (Joe Gardner -voice), Tina Fey (22 -voice)",
+                "m11_soul"
+            )
+        )
         return movies
     }
 
@@ -467,7 +594,161 @@ object DataDummy {
                 "t03_legacies"
             )
         )
+
+
+        televisions.add(
+            TelevisionResponse(
+                "t04",
+                "Marvel Studios: Legends",
+                "As the universe expands, explore the stories of those destined to become legends. Revisit the epic heroes, villains and moments from across the MCU in preparation for the stories still to come. Each dynamic segment feeds directly into the upcoming series — setting the stage for future events. This series weaves together the many threads that constitute the unparalleled Marvel Cinematic Universe.",
+                "Jan 8, 2021",
+                "76%",
+                "Documentary",
+                "8 minutes",
+                "-",
+                "Paul Bettany (as Vision), Elizabeth Olsen (as Wanda Maximoff)",
+                "t04_legends"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t05",
+                "The Good Doctor",
+                "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives",
+                "2020",
+                "86%",
+                "Drama",
+                "43 minutes",
+                "David Shore",
+                "Freddie Highmore (as Shaun Murphy), Antonia Thomas (as Claire Browne)",
+                "t05_the_good_doctor"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t06",
+                "Daughter From Another Mother",
+                "After realizing their babies were exchanged at birth, two women develop a plan to adjust to their new lives: creating a single —and peculiar— family.",
+                "2021",
+                "76%",
+                "Comedy, Drama",
+                "40 minutes",
+                "Carolina Rivera",
+                "Ludwika Paleta (as Ana), Paulina Goto (as Mariana)",
+                "t06_daughter_from_another_mother"
+            )
+        )
+
+
+        televisions.add(
+            TelevisionResponse(
+                "t07",
+                "Grey's Anatomy",
+                "The life you save may be your own. Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+                "2005",
+                "82%",
+                "Comedy, Drama",
+                "43 minutes",
+                "Shonda Rhimes",
+                "Ellen Pompeo (as Meredith Grey), Justin Chambers (as Alex Karev)",
+                "t07_greys_anatomy"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t08",
+                "The Mandalorian",
+                "Bounty hunting is a complicated profession. After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+                "2019",
+                "85%",
+                "Sci-Fi & Fantasy, Action, Adventure",
+                "35 minutes",
+                "Jon Favreau",
+                "Pedro Pascal (as The Mandalorian/Din Djarin), Gina Carano (as Cara Dune)",
+                "t08_the_mandalorian"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t09",
+                "Cobra Kai",
+                "Cobra Kai never dies. This Karate Kid sequel series picks up 30 years after the events of the 1984 All Valley Karate Tournament and finds Johnny Lawrence on the hunt for redemption by reopening the infamous Cobra Kai karate dojo. This reignites his old rivalry with the successful Daniel LaRusso, who has been working to maintain the balance in his life without mentor Mr. Miyagi.",
+                "May 22, 2018",
+                "81%",
+                "Action, Adventure, Drama",
+                "40 minutes",
+                "Hayden Schlossberg",
+                "Ralph Macchio (as Daniel LaRusso), William Zabka (as Johnny Lawrence)",
+                "t09_cobra_kai"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t10",
+                "Vikings",
+                "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
+                "Mar 03, 2013",
+                "80%",
+                "Action, Adventure, Drama",
+                "44 minutes",
+                "Michael Hirst",
+                "Katheryn Winnick (as Lagertha Lothbrok), Peter Franzen (as King Harald Finehair)",
+                "t10_vikings"
+            )
+        )
+
+        televisions.add(
+            TelevisionResponse(
+                "t11",
+                "Game Of Thrones",
+                "Winter Is Coming. Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+                "Apr 17, 2011",
+                "84%",
+                "Sci-Fi & Fantasy, Action, Drama",
+                "1 hour",
+                "David Benioff",
+                "Emilia Clarke (as Daenerys Targaryen), Kit Harington (as Jon Snow)",
+                "t11_game_of_throne"
+            )
+        )
+
+
         return televisions
     }
+
+    fun generateDummyMovieWithId(movieId: String): MovieEntity =
+        MovieEntity(
+            "m01",
+            "Below Zero",
+            "When a prisoner transfer van is attacked, the cop in charge must fight those inside and outside while dealing with a silent foe: the icy temperatures.",
+            "Jan 29, 2021 (US)",
+            "65%",
+            "Action, Crime, Thriller",
+            "1 hours, 46 minutes",
+            "Lluis Quilez",
+            "Javier Gutierrez (as Martin), Karra Elejalde (as Miguel)",
+            false,
+            "m01_below_zero"
+        )
+
+    fun generateDummyTvWithId(tvId: String): TelevisionEntity =
+        TelevisionEntity(
+            "t01",
+            "WandaVision",
+            "Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems.",
+            "Jan 15, 2021",
+            "84%",
+            "Sci-Fi & Fantasy, Mystery, Drama",
+            "36 minutes",
+            "Jac Schaeffer",
+            "Elizabeth Olsen (as Wanda Maximoff/Scarlet Witch), Paul Bettany (as Vision)",
+            false,
+            "t01_wanda_vision"
+        )
 
 }

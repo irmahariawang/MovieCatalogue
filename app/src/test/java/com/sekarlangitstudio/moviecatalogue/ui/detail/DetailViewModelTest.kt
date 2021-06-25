@@ -6,6 +6,8 @@ import androidx.lifecycle.Observer
 import com.sekarlangitstudio.moviecatalogue.data.source.MovieCatalogueRepository
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
+import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
+import com.sekarlangitstudio.moviecatalogue.utils.LiveDataTestUtil
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -55,7 +57,8 @@ class DetailViewModelTest {
 
         `when`(movieCatalogueRepository.getDetailMovie(movieId)).thenReturn(movie)
         viewModelMovie.setSelectedId(movieId)
-        val movieEntity = viewModelMovie.getDetailMovie().value as MovieEntity
+        val movieEntity =
+            LiveDataTestUtil.getValue(movieCatalogueRepository.getDetailMovie(movieId))
         verify(movieCatalogueRepository).getDetailMovie(movieId)
         assertNotNull(movieEntity)
         assertEquals(dummyMovie.movieId, movieEntity.movieId)
@@ -69,9 +72,10 @@ class DetailViewModelTest {
         assertEquals(dummyMovie.casting, movieEntity.casting)
         assertEquals(dummyMovie.imagePath, movieEntity.imagePath)
 
-        viewModelMovie.getDetailMovie().observeForever(movieObserver)
+        viewModelMovie.detailMovie.observeForever(movieObserver)
         verify(movieObserver).onChanged(dummyMovie)
     }
+
 
     @Test
     fun getDetailTV() {
@@ -80,7 +84,7 @@ class DetailViewModelTest {
 
         `when`(movieCatalogueRepository.getDetailTv(televisionId)).thenReturn(television)
         viewModelTv.setSelectedId(televisionId)
-        val tvEntity = viewModelTv.getDetailTv().value as TelevisionEntity
+        val tvEntity = LiveDataTestUtil.getValue(movieCatalogueRepository.getDetailTv(televisionId))
         verify(movieCatalogueRepository).getDetailTv(televisionId)
         assertNotNull(tvEntity)
         assertEquals(dummyTelevision.televisionId, tvEntity.televisionId)
@@ -94,7 +98,7 @@ class DetailViewModelTest {
         assertEquals(dummyTelevision.casting, tvEntity.casting)
         assertEquals(dummyTelevision.imagePath, tvEntity.imagePath)
 
-        viewModelTv.getDetailTv().observeForever(televisionObserver)
+        viewModelTv.detailTv.observeForever(televisionObserver)
         verify(televisionObserver).onChanged(dummyTelevision)
     }
 }

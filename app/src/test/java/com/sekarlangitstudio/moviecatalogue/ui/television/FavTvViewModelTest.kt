@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.sekarlangitstudio.moviecatalogue.data.source.MovieCatalogueRepository
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
+import com.sekarlangitstudio.moviecatalogue.ui.favorite.favtv.FavTvViewModel
 import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
-import com.sekarlangitstudio.moviecatalogue.vo.Resource
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
+import com.sekarlangitstudio.moviecatalogue.utils.LiveDataTestUtil
+import junit.framework.TestCase.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -19,9 +19,9 @@ import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class TelevisionViewModelTest {
-
-    private lateinit var viewModel: TelevisionViewModel
+class FavTvViewModelTest {
+    private lateinit var viewModel: FavTvViewModel
+    private val dummyTv = DataDummy.generateDummyTelevisions()
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -30,26 +30,25 @@ class TelevisionViewModelTest {
     private lateinit var movieCatalogueRepository: MovieCatalogueRepository
 
     @Mock
-    private lateinit var observer: Observer<Resource<List<TelevisionEntity>>>
+    private lateinit var observer: Observer<List<TelevisionEntity>>
 
     @Before
-    fun setUp() {
-        viewModel = TelevisionViewModel(movieCatalogueRepository)
+    fun setup() {
+        viewModel = FavTvViewModel(movieCatalogueRepository)
     }
 
     @Test
-    fun getTelevisions() {
-        val dummyTv = Resource.success(DataDummy.generateDummyTelevisions())
-        val tvs = MutableLiveData<Resource<List<TelevisionEntity>>>()
+    fun getFavTv() {
+        val tvs = MutableLiveData<List<TelevisionEntity>>()
         tvs.value = dummyTv
 
-        `when`(movieCatalogueRepository.getAllTelevisions()).thenReturn(tvs)
-        val tvEntities = viewModel.getTelevisions().value?.data
-        verify<MovieCatalogueRepository>(movieCatalogueRepository).getAllTelevisions()
-        assertNotNull(tvEntities)
-        assertEquals(11, tvEntities?.size)
+        `when`(movieCatalogueRepository.getFavoriteTv()).thenReturn(tvs)
+        val tvEntity = LiveDataTestUtil.getValue(movieCatalogueRepository.getFavoriteTv())
+        verify(movieCatalogueRepository).getFavoriteTv()
+        assertNotNull(tvEntity)
 
-        viewModel.getTelevisions().observeForever(observer)
+        viewModel.getFavoriteTv().observeForever(observer)
         verify(observer).onChanged(dummyTv)
+
     }
 }

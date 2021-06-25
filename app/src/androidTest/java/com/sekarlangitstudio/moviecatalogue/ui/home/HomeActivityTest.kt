@@ -8,20 +8,16 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.rule.ActivityTestRule
 import com.sekarlangitstudio.moviecatalogue.R
+import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
 import com.sekarlangitstudio.moviecatalogue.utils.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
 class HomeActivityTest {
     private val dummyMovie = DataDummy.generateDummyMovies()
     private val dummyTelevision = DataDummy.generateDummyTelevisions()
-
-    @get:Rule
-    var activityRule = ActivityTestRule(HomeActivity::class.java)
 
     @Before
     fun setUp() {
@@ -64,8 +60,6 @@ class HomeActivityTest {
         onView(withId(R.id.text_description)).check(matches(withText(dummyMovie[0].description)))
         onView(withId(R.id.text_duration)).check(matches(isDisplayed()))
         onView(withId(R.id.text_duration)).check(matches(withText(dummyMovie[0].duration)))
-        onView(withId(R.id.text_director)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_director)).check(matches(withText(dummyMovie[0].director)))
     }
 
     @Test
@@ -99,8 +93,6 @@ class HomeActivityTest {
         onView(withId(R.id.text_description)).check(matches(withText(dummyTelevision[0].description)))
         onView(withId(R.id.text_duration)).check(matches(isDisplayed()))
         onView(withId(R.id.text_duration)).check(matches(withText(dummyTelevision[0].duration)))
-        onView(withId(R.id.text_director)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_director)).check(matches(withText(dummyTelevision[0].director)))
     }
 
 }
