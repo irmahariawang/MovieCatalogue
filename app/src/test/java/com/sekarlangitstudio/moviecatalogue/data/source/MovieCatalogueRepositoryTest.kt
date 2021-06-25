@@ -5,6 +5,7 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doAnswer
 import com.nhaarman.mockitokotlin2.verify
 import com.sekarlangitstudio.moviecatalogue.data.source.remote.RemoteDataSource
+import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
 import com.sekarlangitstudio.moviecatalogue.utils.LiveDataTestUtil
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

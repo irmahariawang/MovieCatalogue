@@ -17,6 +17,7 @@ class FavoriteActivity : AppCompatActivity() {
         activityFavoriteBinding.viewPager.adapter = sectionsPagerAdapter
         activityFavoriteBinding.tabs.setupWithViewPager(activityFavoriteBinding.viewPager)
 
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 

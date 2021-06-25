@@ -13,7 +13,6 @@ class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueReposi
     ViewModel() {
     //private lateinit var extraID: String
     val extraID = MutableLiveData<String>()
-    val favorited = MutableLiveData<Boolean>(false)
 
 
     fun setSelectedId(extraId: String) {
@@ -38,14 +37,4 @@ class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueReposi
         movieCatalogueRepository.setTvFavorite(televisionEntity, newState)
     }
 
-
-    /*
-    fun getDetailMovie(): LiveData<MovieEntity> =
-        movieCatalogueRepository.getDetailMovie(extraID.value!!)
-
-    fun getDetailTv(): LiveData<TelevisionEntity> =
-        movieCatalogueRepository.getDetailTv(extraID.value!!)
-
-
-     */
 }

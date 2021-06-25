@@ -26,10 +26,8 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var detailContentDetailBinding: ContentDetailBinding
     lateinit var title: String
-    private var isFavorite = false
     lateinit var movieEntity: MovieEntity
     lateinit var televisionEntity: TelevisionEntity
-    lateinit var session: String
     lateinit var extraSession: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -208,14 +206,5 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    /*
-    private fun checkFavoriteMovie(extraId: String): Boolean {
-        val state: Boolean
-
-
-     return state
-    }
-
-     */
 
 }
