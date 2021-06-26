@@ -5,6 +5,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -13,7 +15,21 @@ import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.databinding.ItemCardViewBinding
 import com.sekarlangitstudio.moviecatalogue.ui.detail.DetailActivity
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.movieId == newItem.movieId
+            }
+
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
+
+    }
+
     private var listMovies = ArrayList<MovieEntity>()
     private lateinit var fm: FragmentManager
 
@@ -56,8 +72,10 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = listMovies[position]
-        holder.bind(movie)
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
+        }
     }
 
     override fun getItemCount(): Int = listMovies.size

@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,8 +14,22 @@ import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.databinding.ItemCardViewBinding
 import com.sekarlangitstudio.moviecatalogue.ui.detail.DetailActivity
 
-class FavMovieAdapter : RecyclerView.Adapter<FavMovieAdapter.MovieViewHolder>() {
+class FavMovieAdapter :
+    PagedListAdapter<MovieEntity, FavMovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.movieId == newItem.movieId
+            }
+
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
+/*
     private val listMovies = ArrayList<MovieEntity>()
 
     fun setMovies(movies: List<MovieEntity>?) {
@@ -21,6 +37,8 @@ class FavMovieAdapter : RecyclerView.Adapter<FavMovieAdapter.MovieViewHolder>() 
         this.listMovies.clear()
         this.listMovies.addAll(movies)
     }
+
+ */
 
 
     override fun onCreateViewHolder(
@@ -33,11 +51,13 @@ class FavMovieAdapter : RecyclerView.Adapter<FavMovieAdapter.MovieViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = listMovies[position]
-        holder.bind(movie)
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
+        }
     }
 
-    inner class MovieViewHolder(private val binding: ItemCardViewBinding) :
+    class MovieViewHolder(private val binding: ItemCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieEntity) {
             with(binding) {
@@ -68,7 +88,8 @@ class FavMovieAdapter : RecyclerView.Adapter<FavMovieAdapter.MovieViewHolder>() 
     }
 
 
-    override fun getItemCount(): Int = listMovies.size
+    //override fun getItemCount(): Int = listMovies.size
 
+    fun getSwipedData(swipedPosition: Int): MovieEntity? = getItem(swipedPosition)
 
 }

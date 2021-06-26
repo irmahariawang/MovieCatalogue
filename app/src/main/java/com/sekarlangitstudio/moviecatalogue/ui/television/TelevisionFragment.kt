@@ -41,8 +41,7 @@ class TelevisionFragment : Fragment() {
                             View.VISIBLE
                         Status.SUCCESS -> {
                             fragmentTelevisionBinding.progressBar.visibility = View.GONE
-                            televisionAdapter.setTv(tvs.data)
-                            televisionAdapter.notifyDataSetChanged()
+                            televisionAdapter.submitList(tvs.data)
                         }
                         Status.ERROR -> {
                             fragmentTelevisionBinding.progressBar.visibility = View.GONE
@@ -57,19 +56,6 @@ class TelevisionFragment : Fragment() {
                 this.setHasFixedSize(true)
                 this.adapter = televisionAdapter
             }
-/*
-            fragmentTelevisionBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getTelevisions().observe(viewLifecycleOwner, { televisions ->
-                fragmentTelevisionBinding.progressBar.visibility = View.GONE
-                televisionAdapter.setTv(televisions)
-                televisionAdapter.notifyDataSetChanged()
-            })
-            with(fragmentTelevisionBinding.rvTv) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = televisionAdapter
-            }
-            */
         }
     }
 }

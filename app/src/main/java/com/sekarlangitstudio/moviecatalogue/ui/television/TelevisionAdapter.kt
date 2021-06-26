@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,7 +14,27 @@ import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionE
 import com.sekarlangitstudio.moviecatalogue.databinding.ItemCardViewBinding
 import com.sekarlangitstudio.moviecatalogue.ui.detail.DetailActivity
 
-class TelevisionAdapter : RecyclerView.Adapter<TelevisionAdapter.TvViewHolder>() {
+class TelevisionAdapter :
+    PagedListAdapter<TelevisionEntity, TelevisionAdapter.TvViewHolder>(DIFF_CALLBACK) {
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TelevisionEntity>() {
+            override fun areItemsTheSame(
+                oldItem: TelevisionEntity,
+                newItem: TelevisionEntity
+            ): Boolean {
+                return oldItem.televisionId == newItem.televisionId
+            }
+
+            override fun areContentsTheSame(
+                oldItem: TelevisionEntity,
+                newItem: TelevisionEntity
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
 
     private var listTv = ArrayList<TelevisionEntity>()
 
@@ -57,8 +79,10 @@ class TelevisionAdapter : RecyclerView.Adapter<TelevisionAdapter.TvViewHolder>()
     }
 
     override fun onBindViewHolder(holder: TvViewHolder, position: Int) {
-        val television = listTv[position]
-        holder.bind(television)
+        val television = getItem(position)
+        if (television != null) {
+            holder.bind(television)
+        }
     }
 
     override fun getItemCount(): Int = listTv.size

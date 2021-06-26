@@ -1,6 +1,7 @@
 package com.sekarlangitstudio.moviecatalogue.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
 import com.sekarlangitstudio.moviecatalogue.data.source.local.room.MovieCatalogueDao
@@ -14,9 +15,9 @@ class LocalDataSource private constructor(private val mMovieCatDao: MovieCatalog
             INSTANCE ?: LocalDataSource(movieCatDao)
     }
 
-    fun getAllMovies(): LiveData<List<MovieEntity>> = mMovieCatDao.getMovies()
+    fun getAllMovies(): DataSource.Factory<Int, MovieEntity> = mMovieCatDao.getMovies()
 
-    fun getFavoriteMovie(): LiveData<List<MovieEntity>> = mMovieCatDao.getFavoriteMovie()
+    fun getFavoriteMovie(): DataSource.Factory<Int, MovieEntity> = mMovieCatDao.getFavoriteMovie()
 
     fun getMovieDetail(movieId: String): LiveData<MovieEntity> =
         mMovieCatDao.getMovieById(movieId)
@@ -28,9 +29,9 @@ class LocalDataSource private constructor(private val mMovieCatDao: MovieCatalog
 
     fun insertMovies(movies: List<MovieEntity>) = mMovieCatDao.insertMovies(movies)
 
-    fun getAllTelevisions(): LiveData<List<TelevisionEntity>> = mMovieCatDao.getTvs()
+    fun getAllTelevisions(): DataSource.Factory<Int, TelevisionEntity> = mMovieCatDao.getTvs()
 
-    fun getFavoriteTv(): LiveData<List<TelevisionEntity>> = mMovieCatDao.getFavoriteTv()
+    fun getFavoriteTv(): DataSource.Factory<Int, TelevisionEntity> = mMovieCatDao.getFavoriteTv()
 
     fun getTvDetail(tvId: String): LiveData<TelevisionEntity> =
         mMovieCatDao.getTelevisionById(tvId)

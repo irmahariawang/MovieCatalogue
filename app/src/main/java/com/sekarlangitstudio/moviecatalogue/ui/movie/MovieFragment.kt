@@ -28,8 +28,6 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         if (activity != null) {
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
@@ -44,8 +42,7 @@ class MovieFragment : Fragment() {
                             View.VISIBLE
                         Status.SUCCESS -> {
                             fragmentMovieBinding.progressBar.visibility = View.GONE
-                            movieAdapter.setMovies(movies.data)
-                            movieAdapter.notifyDataSetChanged()
+                            movieAdapter.submitList(movies.data)
                         }
                         Status.ERROR -> {
                             fragmentMovieBinding.progressBar.visibility = View.GONE

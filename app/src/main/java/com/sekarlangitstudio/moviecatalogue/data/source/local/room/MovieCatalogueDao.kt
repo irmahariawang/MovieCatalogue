@@ -1,18 +1,20 @@
 package com.sekarlangitstudio.moviecatalogue.data.source.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.MovieEntity
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
+
 
 @Dao
 interface MovieCatalogueDao {
 
     @Query("SELECT * FROM movieentities")
-    fun getMovies(): LiveData<List<MovieEntity>>
+    fun getMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE favorite = 1")
-    fun getFavoriteMovie(): LiveData<List<MovieEntity>>
+    fun getFavoriteMovie(): DataSource.Factory<Int, MovieEntity>
 
     @Transaction
     @Query("SELECT * FROM movieentities WHERE movieId = :movieId")
@@ -26,10 +28,10 @@ interface MovieCatalogueDao {
 
 
     @Query("SELECT * FROM televisionentities")
-    fun getTvs(): LiveData<List<TelevisionEntity>>
+    fun getTvs(): DataSource.Factory<Int, TelevisionEntity>
 
     @Query("SELECT * FROM televisionentities WHERE favorite = 1")
-    fun getFavoriteTv(): LiveData<List<TelevisionEntity>>
+    fun getFavoriteTv(): DataSource.Factory<Int, TelevisionEntity>
 
     @Transaction
     @Query("SELECT * FROM televisionentities WHERE televisionId = :tvId")

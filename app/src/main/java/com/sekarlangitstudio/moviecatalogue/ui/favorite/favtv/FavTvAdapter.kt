@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,7 +14,26 @@ import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionE
 import com.sekarlangitstudio.moviecatalogue.databinding.ItemCardViewBinding
 import com.sekarlangitstudio.moviecatalogue.ui.detail.DetailActivity
 
-class FavTvAdapter : RecyclerView.Adapter<FavTvAdapter.TvViewHolder>() {
+class FavTvAdapter : PagedListAdapter<TelevisionEntity, FavTvAdapter.TvViewHolder>(DIFF_CALLBACK) {
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TelevisionEntity>() {
+            override fun areItemsTheSame(
+                oldItem: TelevisionEntity,
+                newItem: TelevisionEntity
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(
+                oldItem: TelevisionEntity,
+                newItem: TelevisionEntity
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
 
     private val listTvs = ArrayList<TelevisionEntity>()
 
@@ -32,8 +53,10 @@ class FavTvAdapter : RecyclerView.Adapter<FavTvAdapter.TvViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TvViewHolder, position: Int) {
-        val tv = listTvs[position]
-        holder.bind(tv)
+        val tv = getItem(position)
+        if (tv != null) {
+            holder.bind(tv)
+        }
     }
 
     inner class TvViewHolder(private val binding: ItemCardViewBinding) :
@@ -66,4 +89,6 @@ class FavTvAdapter : RecyclerView.Adapter<FavTvAdapter.TvViewHolder>() {
     }
 
     override fun getItemCount(): Int = listTvs.size
+
+    fun getSwipedData(swipedPosition: Int): TelevisionEntity? = getItem(swipedPosition)
 }
