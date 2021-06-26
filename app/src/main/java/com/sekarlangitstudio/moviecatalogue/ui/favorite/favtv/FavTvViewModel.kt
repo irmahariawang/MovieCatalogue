@@ -9,4 +9,9 @@ import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionE
 class FavTvViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
     fun getFavoriteTv(): LiveData<PagedList<TelevisionEntity>> =
         movieCatalogueRepository.getFavoriteTv()
+
+    fun setFavoriteTv(tvEntity: TelevisionEntity) {
+        val newState = !tvEntity.favorite
+        movieCatalogueRepository.setTvFavorite(tvEntity, newState)
+    }
 }

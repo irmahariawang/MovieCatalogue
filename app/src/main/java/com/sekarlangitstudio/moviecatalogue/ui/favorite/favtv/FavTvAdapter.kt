@@ -35,17 +35,6 @@ class FavTvAdapter : PagedListAdapter<TelevisionEntity, FavTvAdapter.TvViewHolde
         }
     }
 
-    /*
-    private val listTvs = ArrayList<TelevisionEntity>()
-
-    fun setTvs(tvs: List<TelevisionEntity>?) {
-        if (tvs == null) return
-        this.listTvs.clear()
-        this.listTvs.addAll(tvs)
-    }
-
-     */
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -90,8 +79,6 @@ class FavTvAdapter : PagedListAdapter<TelevisionEntity, FavTvAdapter.TvViewHolde
 
         }
     }
-
-    //override fun getItemCount(): Int = listTvs.size
 
     fun getSwipedData(swipedPosition: Int): TelevisionEntity? = getItem(swipedPosition)
 }
