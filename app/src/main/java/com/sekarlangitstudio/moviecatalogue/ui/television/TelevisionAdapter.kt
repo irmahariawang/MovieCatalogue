@@ -35,7 +35,7 @@ class TelevisionAdapter :
 
         }
     }
-
+/*
     private var listTv = ArrayList<TelevisionEntity>()
 
     fun setTv(televisions: List<TelevisionEntity>?) {
@@ -43,6 +43,8 @@ class TelevisionAdapter :
         this.listTv.clear()
         this.listTv.addAll(televisions)
     }
+
+ */
 
 
     class TvViewHolder(private val binding: ItemCardViewBinding) :
@@ -85,6 +87,6 @@ class TelevisionAdapter :
         }
     }
 
-    override fun getItemCount(): Int = listTv.size
+    //override fun getItemCount(): Int = listTv.size
 
 }

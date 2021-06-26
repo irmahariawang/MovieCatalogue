@@ -30,14 +30,16 @@ class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>
 
     }
 
-    private var listMovies = ArrayList<MovieEntity>()
+    //private var listMovies = ArrayList<MovieEntity>()
     private lateinit var fm: FragmentManager
-
+/*
     fun setMovies(movies: List<MovieEntity>?) {
         if (movies.isNullOrEmpty()) return
         this.listMovies.clear()
         this.listMovies.addAll(movies)
     }
+
+ */
 
     class MovieViewHolder(private val binding: ItemCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -78,5 +80,5 @@ class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>
         }
     }
 
-    override fun getItemCount(): Int = listMovies.size
+    //override fun getItemCount(): Int = listMovies.size
 }
