@@ -3,9 +3,9 @@ package com.sekarlangitstudio.moviecatalogue.ui.television
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.sekarlangitstudio.moviecatalogue.data.source.MovieCatalogueRepository
 import com.sekarlangitstudio.moviecatalogue.data.source.local.entity.TelevisionEntity
-import com.sekarlangitstudio.moviecatalogue.utils.DataDummy
 import com.sekarlangitstudio.moviecatalogue.vo.Resource
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -30,7 +30,10 @@ class TelevisionViewModelTest {
     private lateinit var movieCatalogueRepository: MovieCatalogueRepository
 
     @Mock
-    private lateinit var observer: Observer<Resource<List<TelevisionEntity>>>
+    private lateinit var pagedList: PagedList<TelevisionEntity>
+
+    @Mock
+    private lateinit var observer: Observer<Resource<PagedList<TelevisionEntity>>>
 
     @Before
     fun setUp() {
@@ -39,17 +42,18 @@ class TelevisionViewModelTest {
 
     @Test
     fun getTelevisions() {
-        val dummyTv = Resource.success(DataDummy.generateDummyTelevisions())
-        val tvs = MutableLiveData<Resource<List<TelevisionEntity>>>()
-        tvs.value = dummyTv
+        val dummyTvs = Resource.success(pagedList)
+        `when`(dummyTvs.data?.size).thenReturn(11)
+        val tvs = MutableLiveData<Resource<PagedList<TelevisionEntity>>>()
+        tvs.value = dummyTvs
 
         `when`(movieCatalogueRepository.getAllTelevisions()).thenReturn(tvs)
         val tvEntities = viewModel.getTelevisions().value?.data
-        verify<MovieCatalogueRepository>(movieCatalogueRepository).getAllTelevisions()
+        verify(movieCatalogueRepository).getAllTelevisions()
         assertNotNull(tvEntities)
         assertEquals(11, tvEntities?.size)
 
         viewModel.getTelevisions().observeForever(observer)
-        verify(observer).onChanged(dummyTv)
+        verify(observer).onChanged(dummyTvs)
     }
 }

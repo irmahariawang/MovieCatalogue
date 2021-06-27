@@ -71,12 +71,12 @@ class FavMovieFragment : Fragment() {
             if (view != null) {
                 val swipedPosition = viewHolder.adapterPosition
                 val movieEntity = favMovieAdapter.getSwipedData(swipedPosition)
-                movieEntity?.let { viewModel.setFavorite(it) }
+                movieEntity?.let { viewModel.setFavoriteMovie(it) }
 
                 val snackbar =
                     Snackbar.make(view as View, R.string.message_undo, Snackbar.LENGTH_LONG)
                 snackbar.setAction(R.string.message_ok) { v ->
-                    movieEntity?.let { viewModel.setFavorite(it) }
+                    movieEntity?.let { viewModel.setFavoriteMovie(it) }
                 }
                 snackbar.show()
             }
